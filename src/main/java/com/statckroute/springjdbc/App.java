@@ -13,7 +13,7 @@ public class App
 
         Employee employee = applicationContext.getBean("employee", Employee.class);
 
-        employee.setId(501);
+        employee.setId(505);
 
         employee.setName("Harsha");
 
@@ -30,11 +30,40 @@ public class App
         crudOperationsDemo.getEmployeeDetails();
 
         //update employee by id
-        crudOperationsDemo.updateEmployee(501, new Employee(501,"Harsha",23,"male"));
+        crudOperationsDemo.updateEmployee(505, new Employee(505,"Harsha",23,"male"));
 
         crudOperationsDemo.getEmployeeDetails();
 
         //delete employee by id
-        crudOperationsDemo.deleteEmployee(501);
+        crudOperationsDemo.deleteEmployee(505);
+
+        System.out.println("==================USING JDBC TEMPLATE======================");
+
+        Employee employee1 = applicationContext.getBean("employee", Employee.class);
+
+        employee.setId(603);
+
+        employee.setName("Poornima");
+
+        employee.setAge(22);
+
+        employee.setGender("female");
+
+        JdbcTemplateDemo jdbcTemplateDemo = applicationContext.getBean("jdbcTemplateDemo",JdbcTemplateDemo.class);
+
+        jdbcTemplateDemo.deleteEmployee(603);
+
+        System.out.println("deleted sucessfully!!!");
+
+        jdbcTemplateDemo.saveEmployee(employee);
+
+        System.out.println("inserted sucessfully!!!");
+
+        jdbcTemplateDemo.getEmployeeDetails();
+
+        jdbcTemplateDemo.updateEmployee(603,new Employee(603,"poori",23,"female"));
+
+        jdbcTemplateDemo.getEmployeeDetails();
+
     }
 }

@@ -1,6 +1,7 @@
 package com.statckroute.springjdbc;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
@@ -13,6 +14,8 @@ public class CrudOperationsDemo {
     private DataSource dataSource;
 
     private Connection connection;
+
+    private JdbcTemplate jdbcTemplate;
 
     public CrudOperationsDemo()
     {
@@ -71,6 +74,7 @@ public class CrudOperationsDemo {
             }
         }
     }
+
 
     public void getEmployeeDetails()
     {
@@ -211,4 +215,9 @@ public class CrudOperationsDemo {
             }
         }
     }
+
+
+
+
+
 }
